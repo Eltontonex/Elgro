@@ -184,19 +184,6 @@
             border-color: #4a8c4f;
         }
         
-        .file-upload {
-            border: 2px dashed #4a8c4f;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .file-upload:hover {
-            background: #f0f8f0;
-        }
-        
         .submit-btn {
             width: 100%;
             background: linear-gradient(135deg, #2c5f2d 0%, #4a8c4f 100%);
@@ -244,21 +231,6 @@
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
-        }
-        
-        /* Hidden class */
-        .hidden {
-            display: none;
-        }
-        
-        /* Success Message */
-        .success-message {
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-top: 1rem;
-            text-align: center;
         }
     </style>
 </head>
@@ -324,25 +296,29 @@
     <section id="upload" class="upload-section">
         <h2>Diagnose Your Crop Problem</h2>
         <div class="upload-form">
-            <form id="diagnosisForm">
+            <form action="https://formsubmit.co/ngonidzashemuchena8@gmail.com" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="_subject" value="New Crop Diagnosis Request - Elgro">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
                 <div class="form-group">
                     <label for="farmerName">Your Name *</label>
-                    <input type="text" id="farmerName" required>
+                    <input type="text" name="Farmer_Name" id="farmerName" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" required>
+                    <input type="tel" name="Phone_Number" id="phone" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="location">Farm Location *</label>
-                    <input type="text" id="location" placeholder="District, Region" required>
+                    <input type="text" name="Farm_Location" id="location" placeholder="District, Region" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="cropType">Crop Type *</label>
-                    <select id="cropType" required>
+                    <select name="Crop_Type" id="cropType" required>
                         <option value="">Select crop...</option>
                         <option value="tomatoes">Tomatoes</option>
                         <option value="maize">Maize</option>
@@ -355,24 +331,16 @@
                 
                 <div class="form-group">
                     <label for="problem">Describe the Problem *</label>
-                    <textarea id="problem" rows="4" placeholder="What symptoms do you see? When did it start?" required></textarea>
+                    <textarea name="Problem_Description" id="problem" rows="4" placeholder="What symptoms do you see? When did it start?" required></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label>Upload Photos of Affected Crops *</label>
-                    <div class="file-upload" onclick="document.getElementById('photoUpload').click()">
-                        <p>📸 Click to upload photos (up to 5 images)</p>
-                        <p style="font-size: 0.9rem; color: #666;">Clear photos of leaves, stems, and affected areas</p>
-                        <input type="file" id="photoUpload" accept="image/*" multiple style="display: none;">
-                    </div>
-                    <div id="fileNames" style="margin-top: 0.5rem; color: #4a8c4f;"></div>
+                    <label>Upload Photos of Affected Crops (Optional)</label>
+                    <input type="file" name="attachment" accept="image/*" multiple style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 5px;">
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Note: You can attach photos here or send them via email/WhatsApp after submitting</p>
                 </div>
                 
                 <button type="submit" class="submit-btn">Submit for Diagnosis</button>
-                
-                <div id="successMsg" class="success-message hidden">
-                    ✅ Thank you! Your submission has been received. We'll review your case and send diagnosis within 24 hours to your phone number.
-                </div>
             </form>
         </div>
     </section>
@@ -395,32 +363,32 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-form">
-            <form id="contactForm">
+            <form action="https://formsubmit.co/ngonidzashemuchena8@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Contact Message - Elgro">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
                 <div class="form-group">
                     <label for="contactName">Name *</label>
-                    <input type="text" id="contactName" required>
+                    <input type="text" name="Name" id="contactName" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email *</label>
-                    <input type="email" id="email" required>
+                    <input type="email" name="Email" id="email" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="subject">Subject *</label>
-                    <input type="text" id="subject" required>
+                    <input type="text" name="Subject" id="subject" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="message">Message *</label>
-                    <textarea id="message" rows="5" required></textarea>
+                    <textarea name="Message" id="message" rows="5" required></textarea>
                 </div>
                 
                 <button type="submit" class="submit-btn">Send Message</button>
-                
-                <div id="contactSuccess" class="success-message hidden">
-                    ✅ Message sent successfully! We'll get back to you soon.
-                </div>
             </form>
         </div>
     </section>
@@ -429,60 +397,10 @@
     <footer>
         <p>&copy; 2025 Elgro - Agricultural AI Platform. All rights reserved.</p>
         <p>Helping farmers grow better, one crop at a time.</p>
+        <p style="margin-top: 1rem;">Contact: ngonidzashemuchena8@gmail.com</p>
     </footer>
 
     <script>
-        // File upload handler
-        document.getElementById('photoUpload').addEventListener('change', function(e) {
-            const files = e.target.files;
-            const fileNames = document.getElementById('fileNames');
-            
-            if (files.length > 0) {
-                let names = [];
-                for (let i = 0; i < Math.min(files.length, 5); i++) {
-                    names.push(files[i].name);
-                }
-                fileNames.textContent = '✓ ' + names.join(', ');
-            }
-        });
-
-        // Diagnosis form submission
-        document.getElementById('diagnosisForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            document.getElementById('successMsg').classList.remove('hidden');
-            
-            // Reset form
-            this.reset();
-            document.getElementById('fileNames').textContent = '';
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMsg').classList.add('hidden');
-            }, 5000);
-            
-            // Scroll to success message
-            document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Show success message
-            document.getElementById('contactSuccess').classList.remove('hidden');
-            
-            // Reset form
-            this.reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('contactSuccess').classList.add('hidden');
-            }, 5000);
-        });
-
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
