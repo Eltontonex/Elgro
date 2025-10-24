@@ -315,6 +315,17 @@
                     <label for="phone">Phone Number (with country code) *</label>
                     <input type="tel" name="Phone_Number" id="phone" placeholder="+263 123 456 789" required>
                 </div>
+
+              <div class="form-group">
+                  <label>How would you like to receive your diagnosis? *</label>
+                  <select name="Contact_Method" id="contactMethod" style="width: 100%; padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 5px;" required>
+                  <option value="">Select contact method...</option>
+                  <option value="SMS">📱 SMS (Text Message)</option>
+                  <option value="WhatsApp">💬 WhatsApp</option>
+                  <option value="Phone Call">📞 Phone Call</option>
+                  <option value="Email">📧 Email</option>
+                </select>
+              </div>
                 
                 <div class="form-group">
                     <label for="location">Farm Location *</label>
@@ -339,7 +350,7 @@
                     <label for="problem">Describe the Problem *</label>
                     <textarea name="Problem_Description" id="problem" rows="4" placeholder="What symptoms do you see? When did it start?" required></textarea>
                 </div>
-                
+
                 <div class="form-group">
     <label>Upload Photos of Affected Crops (Optional)</label>
     
