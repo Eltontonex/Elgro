@@ -313,19 +313,8 @@
                 
                 <div class="form-group">
                     <label for="phone">Phone Number (with country code) *</label>
-                    <input type="tel" name="Phone_Number" id="phone" placeholder="+263 123 456 789" required>
+                    <input type="tel" name="Phone Number" id="phone" placeholder="+263 123 456 789">
                 </div>
-
-              <div class="form-group">
-                  <label>How would you like to receive your diagnosis? *</label>
-                  <select name="Contact_Method" id="contactMethod" style="width: 100%; padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 5px;" required>
-                  <option value="">Select contact method...</option>
-                  <option value="SMS">📱 SMS (Text Message)</option>
-                  <option value="WhatsApp">💬 WhatsApp</option>
-                  <option value="Phone Call">📞 Phone Call</option>
-                  <option value="Email">📧 Email</option>
-                </select>
-              </div>
                 
                 <div class="form-group">
                     <label for="location">Farm Location *</label>
@@ -345,14 +334,21 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                
                 <div class="form-group">
                     <label for="problem">Describe the Problem *</label>
-                    <textarea name="Problem_Description" id="problem" rows="4" placeholder="What symptoms do you see? When did it start?" required></textarea>
+                    <textarea name="Problem_Description" id="problem" rows="4" 
+                    placeholder="What symptoms do you see? When did it start?" 
+                    minlength="20" required></textarea>
+                    <p style="font-size: 0.9rem; color: #666;">
+                    Please describe the problem (minimum 20 characters). This helps us give you accurate diagnosis.
+                    </p>
                 </div>
-
+                
                 <div class="form-group">
-    <label>Upload Photos of Affected Crops (Optional)</label>
+    <label>Upload Photos of Affected Crops (Required)</label>
+     <p style="font-size: 0.9rem; color: #666;">
+                    Please submit atleast 5 photos of the problem. This helps us give you accurate diagnosis.
+                    </p>
     
     <!-- Option 1: Take Photo with Camera -->
     <div style="margin-bottom: 1rem;">
@@ -368,7 +364,7 @@
     
     <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">You can use either option or both. Send additional photos via email/WhatsApp after submitting.</p>
 </div>
-                
+            
                 <button type="submit" class="submit-btn">Submit for Diagnosis</button>
             </form>
         </div>
